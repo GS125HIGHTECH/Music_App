@@ -1,3 +1,5 @@
+using MySqlX.XDevAPI.Common;
+
 namespace DatabaseSQLMusicApp
 {
     public partial class Form1 : Form
@@ -40,6 +42,29 @@ namespace DatabaseSQLMusicApp
             String? image = dataGridView.Rows[rowClicked].Cells[4].Value.ToString();
 
             pictureBox1.Load(image);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!(string.IsNullOrEmpty(txt_album.Text) || string.IsNullOrEmpty(txt_artist.Text) || string.IsNullOrEmpty(txt_description.Text) || string.IsNullOrEmpty(txt_image.Text) || string.IsNullOrEmpty(txt_year.Text)))
+                {
+                Album album = new Album
+                {
+                    AlbumName = txt_album.Text,
+                    ArtistName = txt_artist.Text,
+                    Year = Int32.Parse(txt_year.Text),
+                    ImageURL = txt_image.Text,
+                    Description = txt_description.Text
+                };
+
+                AlbumsDAO albumsDAO = new AlbumsDAO();
+                int result = albumsDAO.addOneAlbum(album);
+                MessageBox.Show(result + " new row(s) inserted");
+            }
+            else
+            {
+                MessageBox.Show("Insert all data");
+            }
         }
     }
 }
