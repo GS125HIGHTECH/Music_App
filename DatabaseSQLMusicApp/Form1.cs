@@ -16,8 +16,17 @@ namespace DatabaseSQLMusicApp
         private void button1_Click(object sender, EventArgs e)
         {
             AlbumsDAO albumsDAO = new AlbumsDAO();
-            
+
             albumBindingSource.DataSource = albumsDAO.GetAllAlbums();
+
+            dataGridView1.DataSource = albumBindingSource;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AlbumsDAO albumsDAO = new AlbumsDAO();
+
+            albumBindingSource.DataSource = albumsDAO.SearchTitles(textBox1.Text);
 
             dataGridView1.DataSource = albumBindingSource;
         }
