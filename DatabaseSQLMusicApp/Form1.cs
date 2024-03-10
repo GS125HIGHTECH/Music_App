@@ -30,5 +30,16 @@ namespace DatabaseSQLMusicApp
 
             dataGridView1.DataSource = albumBindingSource;
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dataGridView = (DataGridView)sender;
+
+            int rowClicked = dataGridView.CurrentRow.Index;
+
+            String? image = dataGridView.Rows[rowClicked].Cells[4].Value.ToString();
+
+            pictureBox1.Load(image);
+        }
     }
 }

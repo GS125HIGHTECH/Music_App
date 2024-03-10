@@ -32,7 +32,9 @@
             dataGridView1 = new DataGridView();
             button2 = new Button();
             textBox1 = new TextBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -52,6 +54,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(636, 212);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // button2
             // 
@@ -70,11 +73,21 @@
             textBox1.Size = new Size(320, 23);
             textBox1.TabIndex = 3;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(60, 72);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(212, 212);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 323);
+            Controls.Add(pictureBox1);
             Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
@@ -83,6 +96,7 @@
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -93,5 +107,6 @@
         private DataGridView dataGridView1;
         private Button button2;
         private TextBox textBox1;
+        private PictureBox pictureBox1;
     }
 }
