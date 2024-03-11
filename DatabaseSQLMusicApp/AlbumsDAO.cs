@@ -35,6 +35,8 @@ namespace DatabaseSQLMusicApp
                         ImageURL = reader.GetString(4),
                         Description = reader.GetString(5),
                     };
+                    a.Tracks = GetTracksForAlbum(a.ID);
+
                     returnThese.Add(a);
                 }
             }
@@ -163,6 +165,23 @@ namespace DatabaseSQLMusicApp
             connection.Close();
 
             return returnThese;
+        }
+
+        internal int DeleteTrack(int trackID)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand("DELETE FROM `tracks` WHERE `ID` = @trackID", connection);
+
+            command.Parameters.AddWithValue("@trackID", trackID);
+
+            int result = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            return result;
         }
     }
 }

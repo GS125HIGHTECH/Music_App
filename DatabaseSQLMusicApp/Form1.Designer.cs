@@ -47,6 +47,7 @@
             label1 = new Label();
             dataGridView2 = new DataGridView();
             label6 = new Label();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
@@ -212,7 +213,7 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(351, 321);
+            dataGridView2.Location = new Point(296, 322);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.Size = new Size(456, 212);
             dataGridView2.TabIndex = 6;
@@ -220,17 +221,28 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(351, 303);
+            label6.Location = new Point(296, 304);
             label6.Name = "label6";
             label6.Size = new Size(39, 15);
             label6.TabIndex = 7;
             label6.Text = "Tracks";
             // 
+            // button4
+            // 
+            button4.Location = new Point(296, 540);
+            button4.Name = "button4";
+            button4.Size = new Size(145, 31);
+            button4.TabIndex = 8;
+            button4.Text = "Delete selected Track";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1252, 562);
+            ClientSize = new Size(1252, 576);
+            Controls.Add(button4);
             Controls.Add(label6);
             Controls.Add(dataGridView2);
             Controls.Add(groupBox1);
@@ -272,5 +284,6 @@
         private Button button3;
         private DataGridView dataGridView2;
         private Label label6;
+        private Button button4;
     }
 }

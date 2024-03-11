@@ -14,5 +14,6 @@ namespace DatabaseSQLMusicApp
         public int Year { get; set; }
         public required String ImageURL { get; set; }
         public required String Description { get; set; }
+        public List<Track>? Tracks { get; set; }
     }
 }
