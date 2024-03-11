@@ -16,7 +16,8 @@ namespace DatabaseSQLMusicApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            dataGridView1.ReadOnly = true;
+            dataGridView2.ReadOnly = true;
         }
 
         private void button1_Click(object sender, EventArgs e)

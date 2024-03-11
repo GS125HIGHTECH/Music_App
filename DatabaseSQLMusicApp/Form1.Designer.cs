@@ -215,7 +215,7 @@
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Location = new Point(296, 322);
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(456, 212);
+            dataGridView2.Size = new Size(648, 212);
             dataGridView2.TabIndex = 6;
             // 
             // label6
@@ -252,7 +252,8 @@
             Controls.Add(dataGridView1);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Music App";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
