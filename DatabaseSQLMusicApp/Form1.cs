@@ -5,6 +5,7 @@ namespace DatabaseSQLMusicApp
     public partial class Form1 : Form
     {
         BindingSource albumBindingSource = new BindingSource();
+        BindingSource tracksBindingSource = new BindingSource();    
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +43,12 @@ namespace DatabaseSQLMusicApp
             String? image = dataGridView.Rows[rowClicked].Cells[4].Value.ToString();
 
             pictureBox1.Load(image);
+
+            AlbumsDAO albumsDAO = new AlbumsDAO();
+
+            tracksBindingSource.DataSource = albumsDAO.GetTracksForAlbum((int)dataGridView.Rows[rowClicked].Cells[0].Value);
+
+            dataGridView2.DataSource = tracksBindingSource;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -63,7 +70,7 @@ namespace DatabaseSQLMusicApp
             }
             else
             {
-                MessageBox.Show("Insert all data");
+                MessageBox.Show("Enter data in all fields");
             }
         }
     }

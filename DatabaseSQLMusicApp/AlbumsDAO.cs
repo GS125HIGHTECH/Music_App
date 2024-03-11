@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -97,6 +98,39 @@ namespace DatabaseSQLMusicApp
             connection.Close();
 
             return newRows;
+        }
+
+        public List<Track> GetTracksForAlbum(int albumID)
+        {
+            List<Track> returnThese = new List<Track>();
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+
+            command.CommandText = "SELECT * FROM TRACKS WHERE albums_ID = @albumID";
+            command.Parameters.AddWithValue("@albumID", albumID);
+            command.Connection = connection;
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Track t = new Track
+                    {
+                        ID = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Number = reader.GetInt32(2),
+                        VideoURL = reader.GetString(3),
+                        Lyrics = reader.IsDBNull(4) ? null : reader.GetString(4),
+                    };
+                    returnThese.Add(t);
+                }
+            }
+            connection.Close();
+
+            return returnThese;
         }
     }
 }
