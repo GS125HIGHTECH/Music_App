@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -126,6 +127,37 @@ namespace DatabaseSQLMusicApp
                         Lyrics = reader.IsDBNull(4) ? null : reader.GetString(4),
                     };
                     returnThese.Add(t);
+                }
+            }
+            connection.Close();
+
+            return returnThese;
+        }
+
+        public List<JObject> GetTracksUsingJoin(int albumID)
+        {
+            List<JObject> returnThese = new List<JObject>();
+
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            connection.Open();
+
+            MySqlCommand command = new MySqlCommand();
+
+            command.CommandText = "SELECT tracks.ID as trackID, albums.ALBUM_TITLE, `track_title`, `video_URL` FROM `tracks` JOIN albums ON albums_ID = albums.ID WHERE albums_ID = @albumID";
+            command.Parameters.AddWithValue("@albumID", albumID);
+            command.Connection = connection;
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    JObject newTrack = new JObject();
+
+                    for(int i = 0; i < reader.FieldCount; i++)
+                    {
+                        newTrack.Add(reader.GetName(i).ToString(), reader.GetValue(i).ToString());
+                    }
+                    returnThese.Add(newTrack);
                 }
             }
             connection.Close();

@@ -55,7 +55,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(296, 32);
+            button1.Location = new Point(296, 33);
             button1.Name = "button1";
             button1.Size = new Size(120, 31);
             button1.TabIndex = 0;
@@ -68,13 +68,13 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(296, 72);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(636, 212);
+            dataGridView1.Size = new Size(648, 212);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // button2
             // 
-            button2.Location = new Point(812, 32);
+            button2.Location = new Point(814, 33);
             button2.Name = "button2";
             button2.Size = new Size(120, 31);
             button2.TabIndex = 2;
@@ -84,10 +84,10 @@
             // 
             // textBox1
             // 
-            textBox1.Font = new Font("Segoe UI", 13F);
-            textBox1.Location = new Point(477, 32);
+            textBox1.Font = new Font("Segoe UI", 11F);
+            textBox1.Location = new Point(472, 35);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(320, 31);
+            textBox1.Size = new Size(335, 27);
             textBox1.TabIndex = 3;
             // 
             // pictureBox1
@@ -212,15 +212,15 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(296, 324);
+            dataGridView2.Location = new Point(351, 321);
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(636, 212);
+            dataGridView2.Size = new Size(456, 212);
             dataGridView2.TabIndex = 6;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(296, 306);
+            label6.Location = new Point(351, 303);
             label6.Name = "label6";
             label6.Size = new Size(39, 15);
             label6.TabIndex = 7;

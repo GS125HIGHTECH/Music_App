@@ -46,7 +46,7 @@ namespace DatabaseSQLMusicApp
 
             AlbumsDAO albumsDAO = new AlbumsDAO();
 
-            tracksBindingSource.DataSource = albumsDAO.GetTracksForAlbum((int)dataGridView.Rows[rowClicked].Cells[0].Value);
+            tracksBindingSource.DataSource = albumsDAO.GetTracksUsingJoin((int)dataGridView.Rows[rowClicked].Cells[0].Value);
 
             dataGridView2.DataSource = tracksBindingSource;
         }
